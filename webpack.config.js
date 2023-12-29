@@ -39,15 +39,12 @@ module.exports = {
             "...",
             new ImageMinimizerPlugin({
                 minimizer: {
-                    // Implementation
                     implementation: ImageMinimizerPlugin.imageminMinify,
-                    // Options
                     options: {
                         plugins: [
-                            "imagemin-gifsicle",
-                            "imagemin-mozjpeg",
-                            "imagemin-pngquant",
-                            "imagemin-svgo",
+                            ["gifsicle", {interlaced: true}],
+                            ["jpegtran", {progressive: true}],
+                            ["optipng", {optimizationLevel: 5}],
                         ],
                     },
                 },
